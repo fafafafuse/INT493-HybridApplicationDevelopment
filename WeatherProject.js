@@ -13,8 +13,8 @@ import {
 } from 'react-native';
 
 
-type Props = {};
-export default class WeatherProject extends Component<Props> {
+
+export default class WeatherProject extends Component {
   render() {
     return (
       <View style={styles.container}>
