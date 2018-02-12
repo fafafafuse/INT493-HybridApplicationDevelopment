@@ -12,22 +12,20 @@ import {
   View
 } from 'react-native';
 
-class Em extends Component{
-  render(){
-    return (
-      <Text style={{frontStyle:"italic"}}>
-        {this.props.children}
-      </Text>
-    )
-  }
-}
-
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hello <Em>Italic</Em></Text>
+        <TextInput
+          style={{height:40,
+          borderColor:'gray',
+          borderWidth:1}}
+          placeholder="Type here to translate!"
+          onChangeText={(text) ==> this.setState({text})}
+          onSubmitEditing = {() => console.log(this.state.text)}
+          vale = {this.state.text}
+          />   
       </View>
     );
   }
