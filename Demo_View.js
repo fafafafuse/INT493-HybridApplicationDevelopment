@@ -12,22 +12,25 @@ import {
   View
 } from 'react-native';
 
-class Em extends Component{
-  render(){
-    return (
-      <Text style={{frontStyle:"italic"}}>
-        {this.props.children}
-      </Text>
-    )
-  }
-}
+const instructions = Platform.select({
+  ios: 'Press Cmd+R to reload,\n' +
+    'Cmd+D or shake for dev menu',
+  android: 'Double tap R on your keyboard to reload,\n' +
+    'Shake or press menu button for dev menu',
+});
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Hello <Em>Italic</Em></Text>
+      <View style={{
+          flexDirection: 'row',
+          height: 100,
+          padding: 20,
+      }}>
+      <View style={{backgroundColor: 'blue',flex:0.3}}/>
+      <View style={{backgroundColor: 'red',flex:0.3}}/>
+      <Text>hello world</Text>     
       </View>
     );
   }
