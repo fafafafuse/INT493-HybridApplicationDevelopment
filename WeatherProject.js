@@ -14,7 +14,6 @@ import {
   ImageBackground
 } from "react-native";
 import OpenWeatherMap from './open_weather_map';
-import Forcast from './Forecast';
 import Forecast from "./Forecast";
 
 export default class WeatherProject extends Component {
