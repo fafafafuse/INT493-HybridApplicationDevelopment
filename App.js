@@ -6,7 +6,15 @@
 
 import React, { Component } from "react";
 import ContactData from "./ContactData";
-import { Platform, StyleSheet, Text, View ,FlatList, Image} from "react-native";
+import ContactItem from "./ContactItem";
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Image
+} from "react-native";
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -17,35 +25,42 @@ export default class App extends Component<Props> {
     //                       ,{firstname:'Tlek',
     //                       lastname:'Dawson'}] };
 
-    this.state = {data:[]};
-    ContactData.fetchContacts()
-      .then(contacts => {this.setState({data:contacts})});
+    this.state = { data: [] };
+    ContactData.fetchContacts().then(contacts => {
+      this.setState({ data: contacts });
+    });
   }
-  _renderContact = ({item}) => {
-    const picsrc = item.firstname.toLowerCase()+'.jpeg';
+  _renderContact = ({ item }) => {
+    const picsrc = item.firstname.toLowerCase() + ".jpeg";
     const imgurl = `http://web.sit.kmutt.ac.th/sanit/int493/contacts/img/${picsrc}`;
     return (
       <View style={styles.row}>
-      <Image style={styles.picture} source={{uri:`${imgurl}`}}/>
-      <Text>{item.firstname}</Text>
-      <Text>{item.lastname}</Text>
+        <Image style={styles.picture} source={{ uri: `${imgurl}` }} />
+        <View>
+          <Text>
+            {item.firstname}<Text> </Text>
+            {item.lastname}
+          </Text>
+          <Text>{item.phone}</Text>
+          <Text>{item.email}</Text>
+        </View>
       </View>
-    )
-  }
+    );
+  };
 
   render() {
     return (
       <View style={styles.container}>
-        <FlatList data={this.state.data} renderItem={this._renderContact}/>
+        <FlatList data={this.state.data} renderItem={this._renderContact} />
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
-    alignItems: 'stretch',
-    backgroundColor: '#F5FCFF',
+    justifyContent: "center",
+    alignItems: "stretch",
+    backgroundColor: "#F5FCFF"
   },
   label: {
     fontSize: 16
@@ -56,7 +71,7 @@ const styles = StyleSheet.create({
     resizeMode: "contain"
   },
   row: {
-    flex:1,
+    flex: 1,
     flexDirection: "row",
     alignItems: "stretch",
     padding: 5,
