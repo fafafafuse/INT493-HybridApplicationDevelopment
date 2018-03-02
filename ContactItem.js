@@ -18,11 +18,6 @@ export default class ContactItem extends Component {
   }
 };
 const styles = StyleSheet.create({
-  container: {
-    justifyContent: "center",
-    alignItems: "stretch",
-    backgroundColor: "#F5FCFF"
-  },
   label: {
     fontSize: 16
   },
