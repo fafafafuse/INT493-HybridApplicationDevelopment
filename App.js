@@ -20,11 +20,6 @@ type Props = {};
 export default class App extends Component<Props> {
   constructor(props) {
     super(props);
-    // this.state = { data:[{firstname:'Tlek',
-    //                       lastname:'Metta'}
-    //                       ,{firstname:'Tlek',
-    //                       lastname:'Dawson'}] };
-
     this.state = { data: [] };
     ContactData.fetchContacts().then(contacts => {
       this.setState({ data: contacts });
@@ -38,11 +33,11 @@ export default class App extends Component<Props> {
         <Image style={styles.picture} source={{ uri: `${imgurl}` }} />
         <View>
           <Text>
-            {item.firstname}<Text> </Text>
+            {item.prefix}<Text>{item.firstname} </Text>
             {item.lastname}
           </Text>
-          <Text>{item.phone}</Text>
-          <Text>{item.email}</Text>
+          <Text>Tel: {item.phone}</Text>
+          <Text>Email: {item.email}</Text>
         </View>
       </View>
     );
