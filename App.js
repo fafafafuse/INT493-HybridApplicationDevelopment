@@ -33,7 +33,6 @@ export default class App extends Component<Props> {
   render() {
     return (
       <Container>
-        <Header style={{paddingTop:12}}><Title>Lecturer Contact List</Title></Header>
         <Content>
           <List 
           dataArray={this.state.item}
