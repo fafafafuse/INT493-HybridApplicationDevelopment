@@ -9,48 +9,37 @@ import { Image } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 
 import ParkData from './ParkData';
+import ParkItem from './ParkItem';
 
 export default class App extends Component{
   constructor(props){
     super(props);
-    ParkData.fetchParks();
+    this.state = {data:[]};
+    ParkData.fetchParks()
+    .then(parks => {console.log(parks);
+                    this.setState({data:parks});})
+    .catch(error=>{console.log(error)});                
   }
+
+  _renderPark = (item) => {
+    const picsrc = item.image;
+    const imgurl = `http://web.sit.kmutt.ac.th/sanit/int493/contacts/img/${picsrc}`;
+    return (
+      <ParkItem item={item} imgurl={imgurl}/>
+    );
+  };
+
   render() {
     return (
-    <Container>
-        <Header />
+      <Container>
+      <Header style={{backgroundColor:'green'}}>
+      <Body><Title>Contact List</Title></Body>
+      </Header>
         <Content>
-          <Card>
-            <CardItem>
-              <Left>
-                <Thumbnail source={{uri: 'Image URL'}} />
-                <Body>
-                  <Text>NativeBase</Text>
-                  <Text note>GeekyAnts</Text>
-                </Body>
-              </Left>
-            </CardItem>
-            <CardItem cardBody>
-              <Image source={{uri: 'Image URL'}} style={{height: 200, width: null, flex: 1}}/>
-            </CardItem>
-            <CardItem>
-              <Left>
-                <Button transparent>
-                  <Icon active name="thumbs-up" />
-                  <Text>12 Likes</Text>
-                </Button>
-              </Left>
-              <Body>
-                <Button transparent>
-                  <Icon active name="chatbubbles" />
-                  <Text>4 Comments</Text>
-                </Button>
-              </Body>
-              <Right>
-                <Text>11h ago</Text>
-              </Right>
-            </CardItem>
-          </Card>
+          <List 
+          dataArray={this.state.data}
+          renderRow={this._renderPark}>
+          </List>
         </Content>
       </Container>
     );
