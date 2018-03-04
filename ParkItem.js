@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Image} from 'react-native';
 import {
   ListItem,
   Left,
@@ -8,34 +9,33 @@ import {
   Text,
   Container,
   Content,
-  List
+  List,
+  Title,
+  Card,
+  CardItem
 } from "native-base";
 
 export default class ContactItem extends Component {
   render() {
-    let { imgurl, item } = this.props;
+    let { headurl,thumburl, item } = this.props;
     return (
-      <Container>
-        <Content>
-          <Card>
-            <CardItem>
-              <Left>
-                <Thumbnail source={{ uri: "Image URL" }} />
-                <Body>
-                  <Text>NativeBase</Text>
-                  <Text note>GeekyAnts</Text>
-                </Body>
-              </Left>
-            </CardItem>
-            <CardItem cardBody>
-              <Image
-                source={{ uri: "Image URL" }}
-                style={{ height: 200, width: null, flex: 1 }}
-              />
-            </CardItem>
-          </Card>
-        </Content>
-      </Container>
+       
+      <Content>
+        <Card>
+          <CardItem>
+            <Left>
+              <Thumbnail source={{uri: thumburl}} />
+              <Body>
+                <Text>{item.park}</Text>
+                <Text note>{item.state}</Text>
+              </Body>
+            </Left>
+          </CardItem>
+          <CardItem cardBody>
+            <Image source={{uri: headurl}} style={{height: 200, width: null, flex: 1}}/>
+          </CardItem>      
+        </Card>
+      </Content>
     );
   }
 }
