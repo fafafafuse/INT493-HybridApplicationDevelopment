@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from "react";
-import {Container,Header, Content, List, ListItem, Text, Title} from "native-base";
+import {Container,Header, Content, List, ListItem, Text, Title, Body} from "native-base";
 
 import ContactData from "./ContactData";
 import ContactItem from "./ContactItem";
@@ -33,6 +33,9 @@ export default class App extends Component<Props> {
   render() {
     return (
       <Container>
+      <Header style={{backgroundColor:'green'}}>
+      <Body><Title>Contact List</Title></Body>
+      </Header>
         <Content>
           <List 
           dataArray={this.state.item}
