@@ -15,7 +15,7 @@ import {
   CardItem
 } from "native-base";
 
-export default class ContactItem extends Component {
+export default class ParkItem extends Component {
   render() {
     let { item } = this.props;
 
