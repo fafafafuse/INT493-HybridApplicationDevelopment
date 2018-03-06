@@ -17,7 +17,11 @@ import {
 
 export default class ContactItem extends Component {
   render() {
-    let { headurl,thumburl, item } = this.props;
+    let { item } = this.props;
+
+    const picsrc = item.image;
+    const thumburl = `http://web.sit.kmutt.ac.th/sanit/int493/assets/img/thumbs/${picsrc}`;
+    const headurl = `http://web.sit.kmutt.ac.th/sanit/int493/assets/img/headers/${picsrc}`;
     return (
        
       <Content>

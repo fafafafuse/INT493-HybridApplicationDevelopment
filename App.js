@@ -44,12 +44,8 @@ export default class App extends Component {
   }
 
   _renderPark = (item) => {
-    const picsrc = item.image;
-    const thumburl = `http://web.sit.kmutt.ac.th/sanit/int493/assets/img/thumbs/${picsrc}`;
-    const headurl = `http://web.sit.kmutt.ac.th/sanit/int493/assets/img/headers/${picsrc}`;
-
     return ( 
-    <ParkItem item = {item} thumburl = {thumburl} headurl = {headurl}/>
+    <ParkItem item = {item}/>
   )};
 
   _handleClick = () => {
