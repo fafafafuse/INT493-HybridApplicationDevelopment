@@ -64,7 +64,6 @@ export default class App extends Component {
             renderRow = {this._renderPark} 
             onClick= {this._handleClick}>
       </List>
-      <Text>SSD</Text>
       </Content> 
       </Container>
     );
