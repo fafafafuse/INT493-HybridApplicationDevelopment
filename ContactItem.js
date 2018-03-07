@@ -15,7 +15,6 @@ export default class ContactItem extends Component {
     let { imgurl, item } = this.props;
     return (
       <Content>
-        <List>
           <ListItem>
             <Thumbnail square size={100} source={{ uri: imgurl }} />
             <Body>
@@ -28,7 +27,6 @@ export default class ContactItem extends Component {
               <Text note>Email: {item.email}</Text>
             </Body>
           </ListItem>
-        </List>
       </Content>
     );
   }
