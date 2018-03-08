@@ -25,20 +25,23 @@ export default class ParkItem extends Component {
     return (
        
       <Content>
-        <Card>
-          <CardItem>
+        
+          <CardItem header>
             <Left>
               <Thumbnail source={{uri: thumburl}} />
               <Body>
-                <Text>{item.park}</Text>
-                <Text note>{item.state}</Text>
+                <Text>Park: {item.park}</Text>
+                <Text note>State: {item.state}</Text>
               </Body>
             </Left>
           </CardItem>
           <CardItem cardBody>
             <Image source={{uri: headurl}} style={{height: 200, width: null, flex: 1}}/>
           </CardItem>      
-        </Card>
+          <CardItem footer>
+            <Text>{item.description}</Text>
+          </CardItem> 
+        
       </Content>
     );
   }

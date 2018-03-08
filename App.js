@@ -56,10 +56,9 @@ export default class App extends Component {
     return ( 
       <Container>
      <Content>
-      <List dataArray = {this.state.data} 
+      <Card dataArray = {this.state.data} 
             renderRow = {this._renderPark} 
-            onClick= {this._handleClick}>
-      </List>
+            onClick= {this._handleClick}/>
       </Content> 
       </Container>
     );
