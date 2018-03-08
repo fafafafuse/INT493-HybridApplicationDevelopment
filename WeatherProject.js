@@ -26,11 +26,15 @@ export default class WeatherProject extends Component {
   _handleTextChange = event => {
     let zip = event.nativeEvent.text;
     this.setState({ zip:zip });
-    OpenWeatherMap.fetchForecast(zip).then(forecast => {
+    if(zip!=="" && zip!==" " && zip!=="  "){
+    OpenWeatherMap.fetchForecast(zip)
+    .then(forecast => {
       console.log(forecast);
       this.setState({forecast:forecast});
     });
+  }
   };
+
 
   render() {
     let content = null;
