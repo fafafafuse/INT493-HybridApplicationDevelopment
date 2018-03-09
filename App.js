@@ -64,7 +64,7 @@ export default class App extends Component {
 
   _renderLine = (item) => {
     var productline = item.productline;
-    if(item.productline == 'Classic Cars')
+    path=''
       
     return (
       <TouchableHighlight onPress={() => {
@@ -81,7 +81,14 @@ export default class App extends Component {
             });
         console.log(productline);
       }}>
-      <LineItem item = {item} name={item.productline} src={require('./icon/planes.png')}/>
+      <LineItem item = {item} name={productline} bike={require('./icon/bikes.png')}
+                                                 classic={require('./icon/classics.png')}
+                                                 train={require('./icon/trains.png')}
+                                                 plane={require('./icon/planes.png')}
+                                                 ship={require('./icon/ships.png')}
+                                                 truck={require('./icon/trucks.png')}
+                                                 vintage={require('./icon/vintages.png')}
+                                                 />
       </TouchableHighlight>
     )
   }

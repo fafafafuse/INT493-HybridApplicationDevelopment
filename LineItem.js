@@ -16,14 +16,34 @@ import {
 } from "native-base";
 export default class LineItem extends Component {
   render() {
-    let { item,name,src } = this.props;
-
+    let { item,name,bike,classic,plane,train,ship,truck,vintage } = this.props;
+    let path ='';
+    if (name=='Motorcycles'){
+      path = bike;
+    }
+    if (name=='Classic Cars'){
+      path = classic;
+    }
+    if (name=='Planes'){
+      path = plane;
+    }
+    if (name=='Ships'){
+      path = ship;
+    }
+    if (name=='Trucks and Buses'){
+      path = truck;
+    }
+    if (name=='Trains'){
+      path = train;
+    }
+    if (name=='Vintage Cars'){
+      path = vintage;
+    }
     return (
-       
       <Card>
         
           <CardItem header>
-            <Image source = {src}/>
+            <Image source = {path}/>
        
           </CardItem> 
           <CardItem footer>
@@ -32,6 +52,7 @@ export default class LineItem extends Component {
           </CardItem>      
         
       </Card>
+      
     );
   }
 }
