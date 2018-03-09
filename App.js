@@ -19,23 +19,37 @@ import {
   Body,
   Right,
   Title,
-  List
+  List,
+  Grid,
+  Col,
+  ListItem
 } from 'native-base';
+import {View,StyleSheer,FlatList,ScrollView,TouchableHighlight} from 'react-native';
 
-import ParkData from './ParkData';
-import ParkItem from './ParkItem';
+import ProductData from './ProductData';
+import LineItem from './LineItem';
+import ProductItem from './ProductItem';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [] ,
+      allProductLine:[{id:1,productline:'Classic Cars'},
+                      {id:2,productline:'Motorcycles'},
+                      {id:3,productline:'Planes'},
+                      {id:4,productline:'Ships'},
+                      {id:5,productline:'Trains'},
+                      {id:6,productline:'Trucks and Buses'},
+                      {id:7,productline:'Vintage Cars'}] ,
+
+      productline : 'Classic Cars'
     };
-    ParkData.fetchParks()
-      .then(parks => {
-        console.log(parks);
+    ProductData.fetchProduct()
+      .then(products => {
+        console.log(products);
         this.setState({
-          data: parks
+          data: products
         });
       })
       .catch(error => {
@@ -43,24 +57,53 @@ export default class App extends Component {
       });
   }
 
-  _renderPark = (item) => {
+  _renderProduct = (item) => {
     return ( 
-    <ParkItem item = {item}/>
+    <ProductItem item = {item}/>
   )};
 
-  _handleClick = () => {
-    console.log('Clicked')
+  _renderLine = (item) => {
+    var productline = item.productline;
+    if(item.productline == 'Classic Cars')
+      
+    return (
+      <TouchableHighlight onPress={() => {
+        this.setState({productline:productline});
+        ProductData.fetchProduct(productline)
+          .then(products => {
+          console.log(products);
+          this.setState({
+            data: products
+            });
+          })
+          .catch(error => {
+            console.log(error)
+            });
+        console.log(productline);
+      }}>
+      <LineItem item = {item} name={item.productline} src={require('./icon/planes.png')}/>
+      </TouchableHighlight>
+    )
   }
+
 
   render() {
     return ( 
-      <Container>
-     <Content>
-      <Card dataArray = {this.state.data} 
-            renderRow = {this._renderPark} 
-            onClick= {this._handleClick}/>
-      </Content> 
-      </Container>
+      <View style={{flexDirection:'row'}}>
+
+        <View style={{flex:1}}>
+        <List dataArray={this.state.allProductLine}
+              renderRow={this._renderLine}>
+        </List>
+        </View>
+
+        <View style={{flex:2}}>
+        <List dataArray={this.state.data}
+              renderRow={this._renderProduct}>
+        </List>
+        </View>
+       
+      </View>
     );
   }
 }
