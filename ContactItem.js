@@ -13,19 +13,16 @@ import {
 export default class ContactItem extends Component {
   render() {
     let { imgurl, item } = this.props;
+    const fullName = item.prefix+item.firstname+" "+item.lastname
     return (
       <Content>
           <ListItem>
             <Thumbnail square size={100} source={{ uri: imgurl }} />
             <Body>
               <Text>
-                {item.prefix}
-                <Text>{item.firstname} </Text>
-                {item.lastname}
-              </Text>
-              <Text note>Tel: {item.phone}</Text>
-              <Text note>Email: {item.email}</Text>
-            </Body>
+              {fullName}
+              </Text>     
+              </Body>
           </ListItem>
       </Content>
     );

@@ -33,9 +33,6 @@ export default class App extends Component{
   render() {
     return (
       <Container>
-      <Header style={{backgroundColor:'green'}}>
-      <Body><Title>Contact List</Title></Body>
-      </Header>
         <Content>
           <List 
           dataArray={this.state.item}
