@@ -2,20 +2,36 @@ import React, { Component } from "react";
 import ContactList from './ContactList';
 import {StackNavigator} from 'react-navigation';
 
-class HomeScreen extends Component{
-    render(){
-
+const RootStack = StackNavigator(
+    {
+      ContactList:{
+        screen: ContactList,
+      },
+    //   ContactDetail:{
+    //     screen: ContactDetail,
+    //   }
+    },
+    {
+      initialRouteName: 'ContactList',
+      /* The header config from HomeScreen is now here */
+      navigationOptions: {
+        headerStyle: {
+          backgroundColor: '#f4511e',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      },
     }
-    return(
-        
-    );
-}
-
-export default StackNavigator {
-    Home: {
-        screen: HomeScreen
-      }
-    ContactList:{
-        screen: ContactList
+  ) ;
+  
+  type Props = {};
+  export default class App extends Component<Props> {
+    render() {
+      return (  
+        <RootStack />
+      );
     }
-}
+  }
+  
