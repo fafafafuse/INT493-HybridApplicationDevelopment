@@ -5,15 +5,15 @@ import {StackNavigator} from 'react-navigation';
 
 const RootStack = StackNavigator(
     {
-      ContactList:{
+      Home:{
         screen: ContactList,
       },
-      ContactDetail:{
+      Detail:{
         screen: ContactDetail,
       }
     },
     {
-      initialRouteName: 'ContactList',
+      initialRouteName: 'Home',
       /* The header config from HomeScreen is now here */
       navigationOptions: {
         headerStyle: {

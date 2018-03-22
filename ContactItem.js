@@ -17,8 +17,8 @@ export default class ContactItem extends Component {
     const fullName = item.prefix+item.firstname+" "+item.lastname
     return (
       <Content>
-          <ListItem onPress={() => {navigation.navigate('ContactDetail',{item});
-                                    console.log(item)}}>
+          <ListItem onPress={() => {navigation.navigate('Detail',{item:item,imgurl:imgurl});
+                                    console.log(imgurl)}}>
             <Thumbnail square size={100} source={{ uri: imgurl }} />           
             <Body>
               <Text>
