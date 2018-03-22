@@ -10,7 +10,6 @@ import {
   Content,
   List
 } from "native-base";
-import { StackNavigator } from 'react-navigation';
 
 export default class ContactItem extends Component {
   render() {
@@ -18,7 +17,8 @@ export default class ContactItem extends Component {
     const fullName = item.prefix+item.firstname+" "+item.lastname
     return (
       <Content>
-          <ListItem onPress={ ({navigation}) => navigation.navigate('ContactDetail')}>
+          <ListItem onPress={() => {navigation.navigate('ContactDetail',{item});
+                                    console.log(item)}}>
             <Thumbnail square size={100} source={{ uri: imgurl }} />           
             <Body>
               <Text>

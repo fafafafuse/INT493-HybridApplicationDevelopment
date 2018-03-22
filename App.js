@@ -8,9 +8,9 @@ const RootStack = StackNavigator(
       ContactList:{
         screen: ContactList,
       },
-    //   ContactDetail:{
-    //     screen: ContactDetail,
-    //   }
+      ContactDetail:{
+        screen: ContactDetail,
+      }
     },
     {
       initialRouteName: 'ContactList',

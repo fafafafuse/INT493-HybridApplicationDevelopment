@@ -12,14 +12,19 @@ import {
 } from "native-base";
 
 export default class ContactDetail extends Component {
-    static navigationOptions = {
-        title: 'Contact Detail',
-      } 
+  constructor(props){
+    super(props)
+  }
+  static navigationOptions = {
+    title: 'Contact Detail',
+  }
+
   render() {
+    let {item} = this.props.navigation.state.params;
     return (
     <Container>
       <Content>
-        <Text>Detail Ja</Text>
+        <Text>{item.firstname}</Text>
       </Content>
     </Container>
     );

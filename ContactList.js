@@ -10,7 +10,6 @@ import {Container,Header, Content, List, ListItem, Text, Title, Body} from "nati
 
 import ContactData from "./ContactData";
 import ContactItem from "./ContactItem";
-import { StackNavigator } from 'react-navigation';
 
 export default class ContactList extends Component{
   constructor(props) {
@@ -24,7 +23,7 @@ export default class ContactList extends Component{
 
   static navigationOptions = {
     title: 'Contact List',
-  } ;
+  };
 
   _renderContact = ( item ) => {
     const picsrc = item.firstname.toLowerCase() + ".jpeg";
