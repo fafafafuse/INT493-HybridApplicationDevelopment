@@ -7,9 +7,10 @@
 import React, { Component } from "react";
 import {Container,Header, Content, List, ListItem, Text, Title, Body} from "native-base";
 
+
 import ContactData from "./ContactData";
 import ContactItem from "./ContactItem";
-
+import { StackNavigator } from 'react-navigation';
 
 export default class ContactList extends Component{
   constructor(props) {
@@ -21,12 +22,16 @@ export default class ContactList extends Component{
       .catch(error=>{console.log(error)});
   }
 
+  static navigationOptions = {
+    title: 'Contact List',
+  } ;
+
   _renderContact = ( item ) => {
     const picsrc = item.firstname.toLowerCase() + ".jpeg";
     const imgurl = `http://web.sit.kmutt.ac.th/sanit/int493/contacts/img/${picsrc}`;
     return (
-      <ContactItem item={item} imgurl={imgurl}/>
-    );
+      <ContactItem item={item} imgurl={imgurl} navigation={this.props.navigation}/>
+      );
   };
 
 

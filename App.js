@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ContactList from './ContactList';
+import ContactDetail from './ContactDetail'
 import {StackNavigator} from 'react-navigation';
 
 const RootStack = StackNavigator(
