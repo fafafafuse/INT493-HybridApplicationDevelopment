@@ -6,7 +6,7 @@
 
 import React, { Component } from "react";
 import {Container,Header, Content, List, ListItem, Text, Title, Body} from "native-base";
-
+import {ActivityIndicator} from 'react-native';
 
 import ContactData from "./ContactData";
 import ContactItem from "./ContactItem";
@@ -14,10 +14,12 @@ import ContactItem from "./ContactItem";
 export default class ContactList extends Component{
   constructor(props) {
     super(props);
-    this.state = { item:[]}
+    this.state = { item:[],animating:true}
     ContactData.fetchContacts()
-      .then(contacts=>{console.log(contacts);
-      this.setState({item:contacts});})
+      .then(contacts=>{
+        this.setState({animating:false});
+        console.log(contacts);
+        this.setState({item:contacts});})
       .catch(error=>{console.log(error)});
   }
 
@@ -37,6 +39,7 @@ export default class ContactList extends Component{
   render() {
     return (
       <Container>
+        <ActivityIndicator animating={this.state.animating} color='orange' size='small'/>
         <Content>
           <List 
           dataArray={this.state.item}

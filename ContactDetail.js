@@ -10,8 +10,9 @@ import {
   Content,
   List
 } from "native-base";
-import {View,Image} from 'react-native';
+import {View,Image,TouchableHighlight} from 'react-native';
 import Field from './Field';
+import FieldCall from './FieldCall';
 
 export default class ContactDetail extends Component {
   constructor(props) {
@@ -35,7 +36,9 @@ export default class ContactDetail extends Component {
           <Field label="First Name" value={item.firstname} />
           <Field label="Last Name" value={item.lastname} />
           <Field label="Email" value={item.email} />
-          <Field label="Phone" value={item.phone} />
+          
+          <FieldCall label="Phone" value={item.phone} />
+
         </View>
         <View style={{flex:1}}>
         </View>
