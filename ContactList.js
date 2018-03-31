@@ -16,7 +16,7 @@ export default class ContactList extends Component{
     super(props);
     this.state = { item:[],animating:true}
     ContactData.fetchContacts()
-      .then(contacts=>{
+      .then(contacts=>{      
         this.setState({animating:false});
         console.log(contacts);
         this.setState({item:contacts});})
@@ -39,7 +39,7 @@ export default class ContactList extends Component{
   render() {
     return (
       <Container>
-        <ActivityIndicator animating={this.state.animating} color='orange' size='small'/>
+        {this.state.animating && <ActivityIndicator animating={this.state.animating} color='orange' size='small'/>}
         <Content>
           <List 
           dataArray={this.state.item}
