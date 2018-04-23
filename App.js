@@ -1,38 +1,26 @@
 import React, { Component } from "react";
-import ContactList from './ContactList';
-import ContactDetail from './ContactDetail'
-import {StackNavigator} from 'react-navigation';
+import { View, Text, AsyncStorage } from 'react-native';
 
-const RootStack = StackNavigator(
-    {
-      Home:{
-        screen: ContactList,
-      },
-      Detail:{
-        screen: ContactDetail,
-      }
-    },
-    {
-      initialRouteName: 'Home',
-      /* The header config from HomeScreen is now here */
-      navigationOptions: {
-        headerStyle: {
-          backgroundColor: '#f4511e',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-      },
-    }
-  ) ;
-  
-  type Props = {};
-  export default class App extends Component<Props> {
-    render() {
-      return (  
-        <RootStack />
-      );
-    }
+const RootStack = StackNavigator();
+
+
+export default class App extends Component<Props> {
+  constructor(props) {
+    super(props)
+
+    this.state = { name: 'World' }
   }
-  
+  componentDidMoun() {
+    this.load()
+  }
+
+  load = async () => {
+
+  }
+
+  render() {
+    return (
+      <View></View>
+    )
+  }
+}
