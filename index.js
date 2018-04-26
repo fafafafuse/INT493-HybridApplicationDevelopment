@@ -1,4 +1,5 @@
-import { AppRegistry } from 'react-native';
-import App from './App';
+import { AppRegistry, Animated, Image, Easing } from 'react-native';
+import App from './Appnaja';
 
 AppRegistry.registerComponent('TryNativeBase', () => App);
+
