@@ -3,13 +3,13 @@ import { View, Text, Slider, Animated, Image, Easing, TextInput } from 'react-na
 
 
 
-export default class App extends Component {
+export default class Spin extends Component {
   constructor(props) {
     super(props)
     this.spinValue = new Animated.Value(0)
     this.state = {
       duration: 100,
-      easing: Easing.exp,
+      easing: Easing.linear,
       min: 100,
       max: 5000,
       step: 100,
@@ -37,17 +37,18 @@ export default class App extends Component {
     })
     let { min, max, step, duration, easing } = this.state;
     return (
-      <View>
-        <Text>Duration: {duration} mls</Text>
-        <Slider minimumValue={min} maximumValue={max} onValueChange={(value) => this.setState({ duration: value })} step={step} />
+      <View style={{ margin: 50 }}>
         <Animated.Image
           style={{
-            width: 227,
-            height: 200,
-            transform: [{ rotate: spin }]
+            width: 133,
+            height: 120,
+            transform: [{ rotate: spin }],
+            alignSelf: 'center'
           }}
-          source={{ uri: 'https://www.isranews.org/images/2016/invest/12/1400919745.jpg' }}
+          source={{ uri: 'https://www.transistorsoft.com/shop/products/assets/images/react-native-logo.png' }}
         />
+        <Text>Duration: {duration} mls</Text>
+        <Slider minimumValue={min} maximumValue={max} onValueChange={(value) => this.setState({ duration: value })} step={step} />
       </View>
     )
   }

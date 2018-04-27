@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, Slider, Animated, Image, Easing, TextInput, StyleSheet, ScrollView, TouchableHighlight } from 'react-native';
+import { Card, Container } from 'native-base'
 
 export default class App extends Component {
     constructor() {
@@ -13,7 +14,7 @@ export default class App extends Component {
             this.animatedValue,
             {
                 toValue: 1,
-                duration: 800,
+                duration: 2000,
                 easing
             }
         ).start()
@@ -27,21 +28,17 @@ export default class App extends Component {
         return (
             <View style={styles.container}>
                 <Animated.View style={[styles.block, { marginLeft }]} />
-                <ScrollView>
-                    <Text style={{ textAlign: 'center' }}>Scroll up for more animations</Text>
-                    <Button easing='Bounce' onPress={this.animate.bind(this, Easing.bounce)} />
-                    <Button easing='Cubic' onPress={this.animate.bind(this, Easing.cubic)} />
-                    <Button easing='Back' onPress={this.animate.bind(this, Easing.back(2))} />
-                    <Button easing='Elastic' onPress={this.animate.bind(this, Easing.elastic(2))} />
-                    <Button easing='Ease' onPress={this.animate.bind(this, Easing.ease)} />
-                    <Button easing='InOut' onPress={this.animate.bind(this, Easing.inOut(Easing.quad))} />
-                    <Button easing='In' onPress={this.animate.bind(this, Easing.in(Easing.quad))} />
-                    <Button easing='Out' onPress={this.animate.bind(this, Easing.out(Easing.quad))} />
-                    <Button easing='Sin' onPress={this.animate.bind(this, Easing.sin)} />
-                    <Button easing='Linear' onPress={this.animate.bind(this, Easing.linear)} />
-                    <Button easing='Quad' onPress={this.animate.bind(this, Easing.quad)} />
+                <ScrollView style={{ flex: 1 }}>
+                    <View style={styles.card}>
+                        <Button easing='Bounce' onPress={this.animate.bind(this, Easing.bounce)} />
+                        <Button easing='Back' onPress={this.animate.bind(this, Easing.back(2))} />
+                    </View>
+                    <View style={styles.card}>
+                        <Button easing='Elastic' onPress={this.animate.bind(this, Easing.elastic(2))} />
+                        <Button easing='Linear' onPress={this.animate.bind(this, Easing.linear)} />
+                    </View>
                 </ScrollView>
-            </View>
+            </View >
         );
     }
 }
@@ -64,11 +61,17 @@ var styles = StyleSheet.create({
         backgroundColor: '#ededed',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 10
+        marginTop: 10,
+        flex: 1
     },
     block: {
-        width: 50,
+        width: 65,
         height: 50,
         backgroundColor: 'red'
+    },
+    card: {
+        flex: 2,
+        flexDirection: 'row',
+        margin: 50
     }
 });
