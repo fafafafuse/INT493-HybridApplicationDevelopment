@@ -6,18 +6,26 @@ export default class Spring extends Component {
         super(props)
         this.springValue = new Animated.Value(1)
     }
+
     componentDidMount() {
         this.spring()
     }
+
+    onSpringCompletion = () => {
+
+        this.spring();
+
+    }
+
     spring() {
-        this.springValue.setValue(1)
+        this.springValue.setValue(0.3)
         Animated.spring(
             this.springValue,
             {
-                toValue: 0.5,
-                friction: 0.1
+                toValue: 1,
+                friction: 1
             }
-        ).start()
+        ).start(this.onSpringCompletion)
     }
 
     render() {
@@ -25,8 +33,8 @@ export default class Spring extends Component {
             <View>
 
                 <Animated.Image
-                    style={{ width: 337, height: 300, transform: [{ scale: this.springValue }], alignSelf: 'center' }}
-                    source={{ uri: 'https://s3.amazonaws.com/media-p.slid.es/uploads/alexanderfarennikov/images/1198519/reactjs.png' }} />
+                    style={{ width: 500, height: 280, transform: [{ scale: this.springValue }], alignSelf: 'center' }}
+                    source={{ uri: 'https://www.kustomer.com/app/uploads/2018/02/shop-spring-logo.png' }} />
 
             </View >
         )

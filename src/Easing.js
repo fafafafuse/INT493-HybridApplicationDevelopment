@@ -45,7 +45,7 @@ export default class App extends Component {
 
 const Button = ({ onPress, easing }) => (
     <TouchableHighlight style={styles.button} onPress={onPress}>
-        <Text>{easing}</Text>
+        <Text>Easing: {easing}</Text>
     </TouchableHighlight>
 )
 

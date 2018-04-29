@@ -43,7 +43,8 @@ export default class Spin extends Component {
             width: 133,
             height: 120,
             transform: [{ rotate: spin }],
-            alignSelf: 'center'
+            alignSelf: 'center',
+            margin: 20
           }}
           source={{ uri: 'https://www.transistorsoft.com/shop/products/assets/images/react-native-logo.png' }}
         />
