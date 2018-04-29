@@ -21,12 +21,18 @@ export default class FirstPage extends Component {
         this.setState({ visible: true })
     }
 
-
-
     render() {
+        const Start = () => {
+            return (
+
+                <Button onPress={this.onPress} title={'Start'} />
+
+            )
+        }
+
         return (
             <View style={styles.container}>
-                {this.state.visible ? <Sequence navigation={this.props.navigation} /> : <Button onPress={this.onPress} title={'Go'} />}
+                {this.state.visible ? <Sequence navigation={this.props.navigation} /> : <Start />}
             </View>
         )
     }
@@ -38,7 +44,4 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flex: 1
     },
-    Button: {
-
-    }
 })
