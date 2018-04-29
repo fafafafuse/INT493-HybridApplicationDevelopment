@@ -17,8 +17,7 @@ export default class FirstPage extends Component {
     onPress = () => {
         setTimeout(() => {
             this.setState({ visible: false })
-            this.props.navigation.navigate('Second')
-        }, 4000)
+        }, 6000)
         this.setState({ visible: true })
     }
 
