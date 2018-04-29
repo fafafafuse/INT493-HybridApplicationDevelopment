@@ -24,9 +24,7 @@ export default class FirstPage extends Component {
     render() {
         const Start = () => {
             return (
-
                 <Button onPress={this.onPress} title={'Start'} />
-
             )
         }
 
