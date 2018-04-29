@@ -5,7 +5,7 @@ import Easing from './Easing'
 import Spring from './Spring'
 
 
-export default class App extends Component {
+export default class SecondPage extends Component {
 
     render() {
         return (
